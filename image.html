@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="image.css">
+	
     
     
 </head>
@@ -17,16 +18,21 @@
 
             <div class="image-upload-container">
                 <div class="image-upload-one">
-                  <div class="center">
-                    <div class="form-input">
+                  <div class="center" >
+                    <div class="form-input"  > 
                       <label for="file-ip-1">
                         <img id="file-ip-1-preview" src="https://i.ibb.co/ZVFsg37/default.png">
                         <button type="button" class="imgRemove" onclick="myImgRemove(1)"></button>
                       </label>
-                      <input type="file"  name="img_one" id="file-ip-1" accept="image/*" onchange="showPreview(event, 1);">
+					  
+					  
+                      <input type="file" class="real-upload" name="img_one" id="file-ip-1" accept="image/*" onchange="showPreview(event, 1);">
+					  
                     </div>
-                    <small class="small">Use the &#8634; icon to reset the image</small>
-                  </div>
+					
+					<button type="button" class="btn" onclick="ImageFiles()"> UPLOAD</button>
+                  
+				</div>
                 </div>
             </div> 
 			
