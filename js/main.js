@@ -38,3 +38,12 @@ window.onload = async function loadArticles(){
         }
       
     }
+
+
+   
+    async function imageUload(){
+      window.location.href="http://127.0.0.1:5500/image.html"
+
+
+
+    }

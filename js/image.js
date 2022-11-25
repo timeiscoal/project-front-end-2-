@@ -53,6 +53,7 @@ async function ImageFiles() {
   if (response.status == 200) {
     alert("★업로드 완료★");
     window.location.replace(`${frontend_base_url}/image.html`);
+   
   } else {
     alert(response.status);
   }
