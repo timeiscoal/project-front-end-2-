@@ -9,11 +9,16 @@ window.onload = async function loadArticles() {
   });
 
 
+
     response_json = await response.json();
+    
 
 
     image_json = response_json[0];
 
+    
+
+    
     const image_container = document.getElementById("user-box");
 
   
@@ -38,9 +43,16 @@ window.onload = async function loadArticles() {
       
       } 
 
-
+//업로드 페이지 이동
   async function imageUload(){
     console.log('버튼 클릭')
       window.location.href="http://127.0.0.1:5500/image.html"
 
     }
+
+// 로그아웃
+async function handleLogout() {
+  window.localStorage.clear(); //로컬스토리지토큰 삭제
+  window.location.href="http://127.0.0.1:5500/login.html"
+}
+
