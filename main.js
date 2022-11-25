@@ -7,16 +7,14 @@ window.onload = async function loadArticles() {
       Authorization: localStorage.getItem("access"),
     },
   });
-};
 
-response_json = await response.json();
+  response_json = await response.json();
 
-image_json = response_json[0];
-
-const image_container = document.getElementById("user-box");
-
-for (i = 0; i < response_json.length; i++) {
-  const image = response_json[i]["image"];
+  image_json = response_json[0];
+  //console.log('제이슨?',response_json)
+  //console.log('이미지 왜 안나와',image_json)
+  const image_container = document.getElementById("user-box");
+  //console.log(image_container)
 
   for (i = 70; i < response_json.length; i++) {
     const image = response_json[i]["picture"];
@@ -35,12 +33,7 @@ for (i = 0; i < response_json.length; i++) {
 
     image_container.insertAdjacentHTML("beforeend", new_image);
   }
-}
-
-async function imageUload() {
-  window.location.href = "http://127.0.0.1:5500/image.html";
-}
-
+};
 //게시글 삭제 함수
 // console.log("로드됨")
 
