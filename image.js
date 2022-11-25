@@ -48,52 +48,60 @@ async function ImageFiles() {
 
   if (response.status == 200) {
     alert("★업로드 완료★");
-    window.location.replace(`${frontend_base_url}/image.html`);
+    window.location.replace(`${frontend_base_url}/main.html`);
   } else {
     alert(response.status);
   }
 
   return response.json();
 }
-$(document).ready(function () {
-  $("#cards-boxss").empty();
-  $.ajax({
-    type: "GET",
-    url: "http://127.0.0.1:8000/post/article/", //사용자가 가져온 API를 넣으세요
-    data: {},
-    success: function (response) {
-      let article = response;
-      for (let i = 70; i < 80; i++) {
-        let title = article[i]["title"];
-        let picture_url = article[i]["picture"];
-        console.log(picture_url);
-        let content = article[i]["content"];
-        let article_id = article[i]["id"];
+async function logout() {
+  localStorage.removeItem("payload");
+  localStorage.removeItem("access");
+  localStorage.removeItem("refresh");
 
-        let element_card = document.createElement("div");
-        element_card.setAttribute("class", "card");
+  window.location.replace(`${frontend_base_url}/login.html`);
+}
 
-        let link = document.createElement("a");
-        // link.setAttribute("href", "여기에 주소 넣으세요");
-        let img = document.createElement("img");
-        img.setAttribute("class", "card-img-top");
-        let img_src = backend_base_url + `/${picture_url}`;
-        console.log(img_src);
-        img.setAttribute("src", img_src);
-        img.setAttribute("alt", title);
-        link.appendChild(img);
+// 나중에 처리진행 예정
+// $(document).ready(function () {
+//   $("#cards-boxss").empty();
+//   $.ajax({
+//     type: "GET",
+//     url: "http://127.0.0.1:8000/post/article/", //사용자가 가져온 API를 넣으세요
+//     data: {},
+//     success: function (response) {
+//       let article = response;
+//       for (let i = 0; i < 5; i++) {
+//         let title = article[i]["title"];
+//         let picture_url = article[i]["picture"];
+//         console.log(picture_url);
+//         let content = article[i]["content"];
+//         let article_id = article[i]["id"];
 
-        let element_card_body = document.createElement("div");
-        element_card_body.setAttribute("class", "card_body");
-        let card_body_title = document.createTextNode(title);
-        element_card_body.appendChild(card_body_title);
+//         let element_card = document.createElement("div");
+//         element_card.setAttribute("class", "card");
 
-        element_card.appendChild(link);
-        element_card.appendChild(element_card_body);
-        $("#cards-boxss").append(element_card);
+//         let link = document.createElement("a");
+//         let img = document.createElement("img");
+//         img.setAttribute("class", "card-img-top");
+//         let img_src = backend_base_url + `/${picture_url}`;
+//         console.log(img_src);
+//         img.setAttribute("src", img_src);
+//         img.setAttribute("alt", title);
+//         link.appendChild(img);
 
-        element_card.setAttribute("onclick", "articleDetail(this.id)");
-      }
-    },
-  });
-});
+//         let element_card_body = document.createElement("div");
+//         element_card_body.setAttribute("class", "card_body");
+//         let card_body_title = document.createTextNode(title);
+//         element_card_body.appendChild(card_body_title);
+
+//         element_card.appendChild(link);
+//         element_card.appendChild(element_card_body);
+//         $("#cards-boxss").append(element_card);
+
+//         element_card.setAttribute("onclick", "articleDetail(this.id)");
+//       }
+//     },
+//   });
+// });

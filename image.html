@@ -6,13 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="image.css" />
   </head>
+  <style>
+    .text_box {
+      display: grid;
+      width: 100px;
+      margin-top: -200px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      position: absolute;
+      top: 50px;
+      right: 100px;
+      background: rgb(176, 181, 97);
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 11pt;
+      padding: 10px 10px 10px 10px;
+    }
+  </style>
 
   <body>
-    <div class="box" id="cards-boxss"></div>
-    <input type="text" id="title" />
-    <input type="text" id="content" />
-    <input type="text" id="picture" />
-    <input type="text" id="image_style" />
     <div class="gallary">
       <div class="text">
         <div class="image-upload-container">
@@ -63,6 +80,16 @@
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg/741px-Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg"
         />
+        <div class="text_box">
+          <label for="title_name">제목</label>
+          <input type="text" id="title" name="title_name" />
+          <label for="label_content">설명</label>
+          <input type="text" id="content" name="label_content" />
+          <label for="label_picture">사진 이름</label>
+          <input type="text" id="picture" name="label_picture" />
+          <label for="label_image_style">이미지 스타일</label>
+          <input type="text" id="image_style" name="label_image_style" />
+        </div>
       </div>
       <div class="image image4">
         <img
@@ -80,6 +107,11 @@
         />
       </div>
     </div>
+    <form>
+      <a class="nav-link" id="link-logout" href="#" onclick="logout()">
+        로그아웃
+      </a>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="./image.js"></script>
