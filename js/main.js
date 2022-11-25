@@ -7,18 +7,18 @@ window.onload = async function loadArticles() {
       Authorization: localStorage.getItem("access"),
     },
   });
-};
 
-response_json = await response.json();
 
-image_json = response_json[0];
+    response_json = await response.json();
 
-const image_container = document.getElementById("user-box");
 
-for (i = 0; i < response_json.length; i++) {
-  const image = response_json[i]["image"];
+    image_json = response_json[0];
 
-  for (i = 70; i < response_json.length; i++) {
+    const image_container = document.getElementById("user-box");
+
+  
+
+    for (i = 0; i < response_json.length; i++) {
     const image = response_json[i]["picture"];
 
     const new_image = `<div class='thumbnail' id="user-box">
@@ -36,11 +36,18 @@ for (i = 0; i < response_json.length; i++) {
           image_container.insertAdjacentHTML("beforeend",new_image)
         }
       
-    }
+      } 
 
-
+//업로드 페이지 이동
   async function imageUload(){
     console.log('버튼 클릭')
       window.location.href="http://127.0.0.1:5500/image.html"
 
     }
+
+// 로그아웃
+async function handleLogout() {
+  window.localStorage.clear(); //로컬스토리지토큰 삭제
+  window.location.href="http://127.0.0.1:5500/login.html"
+}
+

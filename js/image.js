@@ -50,8 +50,7 @@ async function ImageFiles() {
     alert("★업로드 완료★");
 
     window.location.replace(`${frontend_base_url}/image.html`);
-    window.location.replace(`${frontend_base_url}/main.html`);
-    window.location.href = "http://127.0.0.1:5500/login.html";
+    window.location.href = "http://127.0.0.1:5500/main.html";
 
     alert(response.status);
   }
@@ -247,3 +246,10 @@ $(document).ready(function () {
 async function Mainpage() {
   window.location.href = "http://127.0.0.1:5500/main.html";
 }
+
+// 로그아웃
+async function handleLogout() {
+  window.localStorage.clear(); //로컬스토리지토큰 삭제
+  window.location.href="http://127.0.0.1:5500/login.html"
+}
+
