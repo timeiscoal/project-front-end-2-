@@ -30,6 +30,10 @@ async function imageUload() {
   window.location.href = "http://127.0.0.1:5500/image.html";
 }
 
+async function imageUload() {
+  window.location.href = "http://127.0.0.1:5500/image.html";
+}
+
 //게시글 삭제 함수
 // console.log("로드됨")
 
