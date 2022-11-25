@@ -1,3 +1,7 @@
+const backend_base_url = "http://127.0.0.1:8000"
+const frontend_base_url = "http://127.0.0.1:5500"
+
+
 //회원가입
 async function handleSign(){
     const email = document.getElementById("email").value
@@ -17,6 +21,10 @@ async function handleSign(){
     })
 
     console.log(response)
+    if (response.status == 200){
+        alert("회원가입 성공")
+        window.location.href="http://127.0.0.1:5500/login.html"
+    }
 
 }
 
@@ -43,20 +51,26 @@ async function handleLogin(){
     const response_json = await response.json()
 
     console.log(response_json)
+    if (response.status == 200){
+        localStorage.setItem("access",response_json.access);
+        localStorage.setItem("refresh",response_json.refresh);
 
-    localStorage.setItem("access",response_json.access);
-    localStorage.setItem("refresh",response_json.refresh);
+        // PAYLOAD
+        const accessToken = response_json.access
+        const base64Url = accessToken.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
 
-    // PAYLOAD
-    const accessToken = response_json.access
-    const base64Url = accessToken.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+        localStorage.setItem("payload", jsonPayload);
+        alert("로그인 됐어욤")
+        window.location.href="http://127.0.0.1:5500/main.html"
 
-    localStorage.setItem("payload", jsonPayload);
-
+    } else {
+        //로그인 실패시
+        alert("로그인 다시 확인해주세염")}
+        
 }
 
 //로그아웃
