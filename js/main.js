@@ -36,11 +36,6 @@ for (i = 0; i < response_json.length; i++) {
     image_container.insertAdjacentHTML("beforeend", new_image);
   }
 }
-
-async function imageUload() {
-  window.location.href = "http://127.0.0.1:5500/image.html";
-}
-
 //게시글 삭제 함수
 // console.log("로드됨")
 
