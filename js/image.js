@@ -21,9 +21,6 @@ do {
 }
 while (number < 5);
 
-
-
-
 async function ImageFiles() {
   console.log("버튼 돼유?");
   const image = document.getElementById("file-ip-1").files[0];
@@ -101,15 +98,6 @@ $(document).ready(function () {
     },
   });
 });
-
-
-
-
-
-
-
-
-
 
 // // 필터 고르기
 // async function chageLangSelect(){

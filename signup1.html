@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>회원가입</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-image: url(http://algogaza.com/wp-content/uploads/cache/images/2022/11/g_252/g_252-3217941801.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #b3b3b3;
+        background-blend-mode: multiply;
+      }
+      body .login {
+        display: flex;
+        flex-direction: column;
+        background: rgba(236, 225, 225, 0.75);
+        border-radius: 4px;
+        min-width: 300px;
+        height: 100%;
+        padding: 60px 68px 40px;
+      }
+      body .login__title {
+        margin-bottom: 20px;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      body .login__group {
+        position: relative;
+        z-index: 10;
+        display: flex;
+      }
+      body .login__group__label {
+        position: absolute;
+        z-index: 150;
+        color: #5e5b5b;
+        font-size: 0.9rem;
+        top: 30px;
+        left: 18px;
+        transition: all 300ms ease-in;
+        will-change: transform;
+      }
+      body .login__group__input {
+        width: 100%;
+        position: relative;
+        z-index: 100;
+        background: rgba(153, 149, 149, 0.75);
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: none;
+        opacity: 1;
+        font-size: 1rem;
+        color: rgb(1, 1, 1);
+        line-height: 50px;
+        padding: 12px 18px 0;
+      }
+      body .login__group__input:focus + .login__group__label {
+        top: 15px;
+        font-size: 0.7rem;
+      }
+      body .login__sign-in {
+        margin: 24px 0 12px;
+        padding: 16px;
+        color: #fff;
+        background: #d8d25b;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      body .login__sign-in1 {
+        margin: 2px 10px 12px;
+        padding: 15px;
+        color: #fff;
+        background: #d8d25b;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 4px;
+        height: 49px;
+        cursor: pointer;
+      }
+      body .login__secondary-cta {
+        position: relative;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+      }
+      body .login__secondary-cta__text {
+        opacity: 1;
+        font-size: 0.9rem;
+        color: #b3b3b3;
+        text-decoration: none;
+        will-change: transform;
+      }
+      body .login__secondary-cta__text--need-help {
+        transition: all 0.3s ease-in;
+      }
+      body .login__secondary-cta__text--need-help:hover {
+        text-decoration: underline;
+      }
+
+      ::-moz-placeholder {
+        font-size: 0.7rem;
+      }
+
+      :-ms-input-placeholder {
+        font-size: 0.7rem;
+      }
+
+      ::placeholder {
+        font-size: 0.7rem;
+      }
+    </style>
+    <script src="js/api.js"></script>
+</head>
+
+<body>
+    <div class="login">
+      <h1 class="login__title">Sign Up</h1>
+  <form>
+      <div class="login__group">
+        <input class="login__group__input" type="email" name="email" id="email" required="true" />
+        <label class="login__group__label">Email or phone number</label>
+      </div>
+      <div class="login__group">
+        <input class="login__group__input" type="password" name="password" id="password" required="true" />
+        <label class="login__group__label">Password</label>
+      </div>
+      <button class="login__sign-in" type="button" onclick="handleSign()">회원가입하기</button>
+    </div>
+  </form>
+</body>
+</html>
