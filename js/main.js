@@ -11,18 +11,14 @@ window.onload = async function loadArticles() {
 
 
     response_json = await response.json();
-    response_json = await response.json();
+    
 
 
     image_json = response_json[0];
 
-    image_json = response_json[0];
+    
 
-    const image_container = document.getElementById("user-box");
-
-  
-
-    for (i = 0; i < response_json.length; i++) {
+    
     const image_container = document.getElementById("user-box");
 
   
@@ -59,4 +55,4 @@ async function handleLogout() {
   window.localStorage.clear(); //로컬스토리지토큰 삭제
   window.location.href="http://127.0.0.1:5500/login.html"
 }
-}
+
