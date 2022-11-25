@@ -1,28 +1,27 @@
-console.log('ㅇㅁㅇ')
+console.log("ㅇㅁㅇ");
 
+window.onload = async function loadArticles() {
+  const response = await fetch("http://127.0.0.1:8000/post/article/", {
+    method: "GET",
+    headers: {
+      Authorization: localStorage.getItem("access"),
+    },
+  });
+};
 
-window.onload = async function loadArticles(){
-    const response = await fetch('http://127.0.0.1:8000/post/article/',{
-        method:'GET',
-        headers:{
-            "Authorization": localStorage.getItem("access")
-        }
-    })
+response_json = await response.json();
 
+image_json = response_json[0];
 
-    response_json = await response.json()
-   
-    image_json = response_json[0]
-    
-    const image_container = document.getElementById('user-box')
- 
-    
-        for (i = 0; i <  response_json.length; i++){
-        
-             const image =  response_json[i]['image']
-       
+const image_container = document.getElementById("user-box");
 
-            const new_image = `<div class='thumbnail' id="user-box">
+for (i = 0; i < response_json.length; i++) {
+  const image = response_json[i]["image"];
+
+  for (i = 70; i < response_json.length; i++) {
+    const image = response_json[i]["picture"];
+
+    const new_image = `<div class='thumbnail' id="user-box">
             <div class='photoContainer'>
               <a href='#'>
                 <img src='http://127.0.0.1:8000/${image}'/>
@@ -32,13 +31,11 @@ window.onload = async function loadArticles(){
                 </div>          
               </a>
             </div>
-          </div>`
+          </div>`;
 
-          image_container.insertAdjacentHTML("beforeend",new_image)
-        }
-      
-    }
-
+    image_container.insertAdjacentHTML("beforeend", new_image);
+  }
+}
 //게시글 삭제 함수
 // console.log("로드됨")
 
