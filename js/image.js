@@ -1,28 +1,24 @@
-console.log("로딩됨 ㅇㅂㅇ")
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+console.log("로딩됨 ㅇㅂㅇ");
+const backend_base_url = "http://127.0.0.1:8000";
+const frontend_base_url = "http://127.0.0.1:5500";
 
 var number = 1;
 do {
-  function showPreview(event, number){
-    if(event.target.files.length > 0){
+  function showPreview(event, number) {
+    if (event.target.files.length > 0) {
       let src = URL.createObjectURL(event.target.files[0]);
-      let preview = document.getElementById("file-ip-"+number+"-preview");
+      let preview = document.getElementById("file-ip-" + number + "-preview");
       preview.src = src;
       preview.style.display = "block";
-    } 
-    
+    }
   }
   function myImgRemove(number) {
-      document.getElementById("file-ip-"+number+"-preview").src = "https://i.ibb.co/ZVFsg37/default.png";
-      document.getElementById("file-ip-"+number).value = null;
-    }
+    document.getElementById("file-ip-" + number + "-preview").src =
+      "https://i.ibb.co/ZVFsg37/default.png";
+    document.getElementById("file-ip-" + number).value = null;
+  }
   number++;
-}
-while (number < 5);
-
-
-
+} while (number < 5);
 
 async function ImageFiles() {
   console.log("버튼 돼유?");
@@ -52,14 +48,16 @@ async function ImageFiles() {
 
   if (response.status == 200) {
     alert("★업로드 완료★");
+
     window.location.replace(`${frontend_base_url}/image.html`);
-   
-  } else {
+    window.location.replace(`${frontend_base_url}/main.html`);
+    window.location.href = "http://127.0.0.1:5500/login.html";
+
     alert(response.status);
   }
-
   return response.json();
 }
+
 $(document).ready(function () {
   $("#cards-boxss").empty();
   $.ajax({
@@ -97,26 +95,66 @@ $(document).ready(function () {
         element_card.appendChild(element_card_body);
         $("#cards-boxss").append(element_card);
 
+        async function logout() {
+          localStorage.removeItem("payload");
+          localStorage.removeItem("access");
+          localStorage.removeItem("refresh");
+
+          window.location.replace(`${frontend_base_url}/login.html`);
+        }
+
+        // 나중에 처리진행 예정
+        // $(document).ready(function () {
+        //   $("#cards-boxss").empty();
+        //   $.ajax({
+        //     type: "GET",
+        //     url: "http://127.0.0.1:8000/post/article/", //사용자가 가져온 API를 넣으세요
+        //     data: {},
+        //     success: function (response) {
+        //       let article = response;
+        //       for (let i = 0; i < 5; i++) {
+        //         let title = article[i]["title"];
+        //         let picture_url = article[i]["picture"];
+        //         console.log(picture_url);
+        //         let content = article[i]["content"];
+        //         let article_id = article[i]["id"];
+
+        //         let element_card = document.createElement("div");
+        //         element_card.setAttribute("class", "card");
+
+        //         let link = document.createElement("a");
+        //         let img = document.createElement("img");
+        //         img.setAttribute("class", "card-img-top");
+        //         let img_src = backend_base_url + `/${picture_url}`;
+        //         console.log(img_src);
+        //         img.setAttribute("src", img_src);
+        //         img.setAttribute("alt", title);
+        //         link.appendChild(img);
+        //         let element_card_body = document.createElement("div");
+        //         element_card_body.setAttribute("class", "card_body");
+        //         let card_body_title = document.createTextNode(title);
+        //         element_card_body.appendChild(card_body_title);
+
+        //         element_card.appendChild(link);
+        //         element_card.appendChild(element_card_body);
+        //         $("#cards-boxss").append(element_card);
+
+        //         element_card.setAttribute("onclick", "articleDetail(this.id)");
+        //       }
+        //     },
+        //   });
+        // });
         element_card.setAttribute("onclick", "articleDetail(this.id)");
       }
     },
   });
 });
 
-
-
-
-
-
-
-
-
-
 // // 필터 고르기
 // async function chageLangSelect(){
 //   console.log('qjs')
 //   const langSelect = document.getElementById("selectbox");
-   
+
 //   // select element에서 선택된 option의 value가 저장된다.
 //    selectValue = langSelect.options[langSelect.selectedIndex].value;
 //    //console.log(22222222,selectValue)
@@ -125,12 +163,8 @@ $(document).ready(function () {
 //    selectText = langSelect.options[langSelect.selectedIndex].text;
 //    //console.log(111111111,selectText)
 //    langSelect.setAttribute("onclick", "filter_list()")
- 
+
 // }
-
-
-
-
 
 // // 필터 데이터 불러오기
 // async function filter_list() {
@@ -147,7 +181,6 @@ $(document).ready(function () {
 //   }).then(data => {
 //       return data
 //   });
- 
 
 //   const filters = document.getElementById("selectbox"); // 각각의 필터이름,이미지가 담긴 div를 추가할 부모 div
 //   console.log("필터",filters)
@@ -163,52 +196,35 @@ $(document).ready(function () {
 //       //console.log('아이디',options.id)
 //       options.innerText = response[i]['category']
 //       //console.log('텍스트',options.innerText)
-//       options.value = response[i]['category'] 
+//       options.value = response[i]['category']
 //       console.log('밸류',options.value)
-     
+
 //       options.setAttribute("onclick", "ImageFiles()")
 //       filters.append(options)
 //       console.log('셀렉트 박스----------',filters)
-//       console.log('옵션ㄴㄴㄴㄴㄴㄴㄴㄴ',options)      
+//       console.log('옵션ㄴㄴㄴㄴㄴㄴㄴㄴ',options)
 
 //   }
-      
+
 //       }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // 이미지 업로드
 // async function ImageFiles() {
 
 //   console.log('버튼 돼유?')
 //   const picture = document.getElementById('file-ip-1').files[0]
- 
-//   const image_style = document.getElementById('filter_pk').value
 
+//   const image_style = document.getElementById('filter_pk').value
 
 //   console.log('필터 왜 자꾸 이것만 나와',image_style)
 //   console.log('사진',picture)
 
-  
-
 //   const formData = new FormData();
-  
+
 //   formData.append("image", picture)
 //   formData.append("category", image_style)
 
-  
-//   const response = await fetch(`${backend_base_url}/post/article/`, { 
+//   const response = await fetch(`${backend_base_url}/post/article/`, {
 //       headers: { "Authorization": "Bearer " + localStorage.getItem("access"), },
 //       method: 'POST',
 //       body: formData
@@ -216,7 +232,7 @@ $(document).ready(function () {
 //   )
 
 //   console.log('폼데이터?!',formData)
-  
+
 //   if (response.status == 200) {
 //      alert("★업로드 완료★")
 //      window.location.replace(`${frontend_base_url}/image.html`);
@@ -228,3 +244,6 @@ $(document).ready(function () {
 
 // }
 
+async function Mainpage() {
+  window.location.href = "http://127.0.0.1:5500/main.html";
+}
