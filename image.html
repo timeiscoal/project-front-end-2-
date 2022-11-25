@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="image.css">
+    <link rel="stylesheet" href="css/image.css">
 	
     
     
@@ -29,9 +29,19 @@
                       <input type="file" class="real-upload" name="img_one" id="file-ip-1" accept="image/*" onchange="showPreview(event, 1);">
 					  
                     </div>
-					
+			  
 					<button type="button" class="btn" onclick="ImageFiles()"> UPLOAD</button>
-                  
+
+					  <select id="selectbox" name="selectbox" onchange="chageLangSelect()">
+						<option  id="id" value="" selected disabled>필터 선택</option>              
+						<option id="id" value="">en(영어)</option>
+						
+						
+						</select>
+					
+
+
+
 				</div>
                 </div>
             </div> 
@@ -72,7 +82,7 @@
        
 
 
-    <script src="image.js"> </script>
+    <script src="js/image.js"> </script>
 </body>
 
 

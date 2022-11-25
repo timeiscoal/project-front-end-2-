@@ -2,7 +2,7 @@ console.log('ㅇㅁㅇ')
 
 
 window.onload = async function loadArticles(){
-    const response = await fetch('http://127.0.0.1:8000/article/',{
+    const response = await fetch('http://127.0.0.1:8000/post/article/',{
         method:'GET',
         headers:{
             "Authorization": localStorage.getItem("access")
@@ -13,10 +13,9 @@ window.onload = async function loadArticles(){
     response_json = await response.json()
    
     image_json = response_json[0]
-    //console.log('제이슨?',response_json)
-    //console.log('이미지 왜 안나와',image_json) 
+    
     const image_container = document.getElementById('user-box')
-   //console.log(image_container)
+ 
     
         for (i = 0; i <  response_json.length; i++){
         
