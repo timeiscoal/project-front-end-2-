@@ -39,3 +39,24 @@ window.onload = async function loadArticles(){
         }
       
     }
+
+//게시글 삭제 함수
+// console.log("로드됨")
+
+// function handleDelete(d) {
+//     const singleItem = document.getElementById(d.id)
+//     singleItem.remove()
+// }
+
+// // const content = itemInput.value
+// // if (content) {
+//     const myList = document.getElementById('gallery')
+//     const listItem = document.getElementsById('user-box')
+//     console.log(myList.getElementsByTagName('div').length)
+//     let list_number = myList
+
+//     const deleteButton = document.createElement('Button')
+//     deleteButton.innerHTML = "삭제"
+//     deleteButton.setAttribute("onclick", "handleDelete(this)")
+//     deleteButton.setAttribute("id", '${list_number}th-item-delete-button')
+//     newList.appendChild(deleteButton)
