@@ -49,6 +49,7 @@ async function ImageFiles() {
   if (response.status == 200) {
     alert("★업로드 완료★");
     window.location.replace(`${frontend_base_url}/image.html`);
+    window.location.href="http://127.0.0.1:5500/login.html"
   } else {
     alert(response.status);
   }
@@ -97,3 +98,10 @@ $(document).ready(function () {
     },
   });
 });
+
+async function Mainpage(){
+  window.location.href="http://127.0.0.1:5500/main.html"
+
+
+
+}
