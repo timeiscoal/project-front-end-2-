@@ -10,9 +10,12 @@
     
 </head>
 
-<body>
-
-
+  <body>
+    <div class="box" id="cards-boxss"></div>
+    <input type="text" id="title" />
+    <input type="text" id="content" />
+    <input type="text" id="picture" />
+    <input type="text" id="image_style" />
     <div class="gallary">
 		<div class="text">
 
@@ -29,19 +32,9 @@
                       <input type="file" class="real-upload" name="img_one" id="file-ip-1" accept="image/*" onchange="showPreview(event, 1);">
 					  
                     </div>
-			  
-					<button type="button" class="btn" onclick="ImageFiles()"> UPLOAD</button>
-
-					  <select id="selectbox" name="selectbox" onchange="chageLangSelect()">
-						<option  id="id" value="" selected disabled>필터 선택</option>              
-						<option id="id" value="">en(영어)</option>
-						
-						
-						</select>
 					
-
-
-
+					<button type="button" class="btn" onclick="ImageFiles()"> UPLOAD</button>
+                  
 				</div>
                 </div>
             </div> 
@@ -82,7 +75,7 @@
        
 
 
-    <script src="js/image.js"> </script>
+    <script src="image.js"> </script>
 </body>
 
 
